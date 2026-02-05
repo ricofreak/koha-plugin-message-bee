@@ -154,7 +154,7 @@ AUTO_RENEWALS_DGST:
 ```
 ---
 messagebee: yes
-checkouts: [% FOREACH c IN checkouts %][% c.issue_id %],[% END %]
+checkouts: [% FOREACH c IN checkouts %][% IF !c.auto_renew_error || c.auto_renew_error == 'auto_renewal_final' || c.auto_renew_error == 'auto_unseen_final' %][% c.issue_id %], [% END %][% END %]
 ```
 
 OVERDUE NOTICES:
